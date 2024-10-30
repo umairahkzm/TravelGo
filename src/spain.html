@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Destinations - Italy</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="country.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav__logo">TravelGo</div>
+            <ul class="nav__links">
+                <li><a class="link" href="homepage.html">Home</a></li>
+                <li><a class="link" href="index.html">Itineraries</a></li>
+            </ul>
+        </nav>
+        <div class="header__content">
+            <h1>Welcome To Spain</h1>
+        </div>
+    </header>
+
+    <div class="section__container">
+        <div class="about__container">
+            <h2>Get to know Spain ! </h2>
+            <div class="about__content">
+                <p>Spain, located on the Iberian Peninsula in southwestern Europe, is a country celebrated for its rich history, diverse landscapes, and vibrant culture. Known for its passionate traditions like flamenco dancing, lively festivals such as La Tomatina and San Fermín, and world-renowned cuisine, Spain offers an unforgettable experience. From the architectural marvels of Barcelona’s Sagrada Família and the Alhambra palace in Granada to the beautiful beaches of the Costa del Sol and the Balearic Islands, Spain's beauty is truly diverse. Cities like Madrid, the capital, are filled with art galleries, grand plazas, and royal palaces, while Seville enchants visitors with its historic charm and cultural depth. Spanish cuisine, featuring tapas, paella, and fine wines, reflects regional diversity and a love for fresh, flavorful ingredients. With its warm, welcoming people and a legacy that blends Moorish, Roman, and European influences, Spain is a fascinating destination where history meets modernity.</p>
+                <img src="image/aboutSpain.jpg" alt="Travel team" class="about__image">
+            </div>
+        </div>
+
+        <div class="weather__container">
+            <h2>Weather</h2>
+            <div class="weather__info">
+                <div class="weather__item">
+                    <h3><i class="ri-map-pin-line"></i> Location</h3>
+                    <p id="location">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-thermometer-line"></i> Temperature</h3>
+                    <p id="temperature">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-thermometer-line"></i> Feels Like</h3>
+                    <p id="feels_like">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-sun-line"></i> Condition</h3>
+                    <p id="condition">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-windy-line"></i> Wind</h3>
+                    <p id="wind">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-drop-line"></i> Humidity</h3>
+                    <p id="humidity">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-sun-cloudy-line"></i> Sunrise</h3>
+                    <p id="sunrise">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-moon-line"></i> Sunset</h3>
+                    <p id="sunset">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-shirt-line"></i> Clothing Advice</h3>
+                    <p id="clothing">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-clock-line"></i> Local Time</h3>
+                    <p id="local_time">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-thermometer-line"></i> Forecast Temp</h3>
+                    <p id="forecast_temp">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-weather-sunny-line"></i> Weather Icon</h3>
+                    <img id="weather_icon" src="" alt="Weather Icon" />
+                </div>
+            </div>
+
+<button class="clothing-advice-btn" onclick="showClothingAdvice()">Clothing Advice</button>
+
+<div id="clothingPopUp" style="display: none;">
+    <span onclick="closeClothingAdvice()" style="cursor:pointer;">&times;</span>
+    <div id="clothing-slider">
+        <i id="clothingPrev" class="arrow fas fa-chevron-left" onclick="changeClothing(-1)"></i>
+        <img id="clothingImage" src="" alt="Clothing Recommendation" />
+        <i id="clothingNext" class="arrow fas fa-chevron-right" onclick="changeClothing(1)"></i>
+    </div>
+    
+</div>
+
+        </div>
+
+        <section class="journey__container">
+            <div class="places__container">
+                <h2>Popular Places</h2>
+                <div class="journey__grid">
+                    <div class="country__card" onclick="openPopup('Sagrada Família', 'Located in Barcelona, this iconic basilica designed by architect Antoni Gaudí is a UNESCO World Heritage site and one of the most famous landmarks in Spain. Known for its unique architecture and intricate facades, the Sagrada Família is still under construction after more than a century, drawing millions of visitors each year.')">
+                        <img src="image/sagrada.jpg" alt="Sagrada Família" />
+                        <div class="country__name">Sagrada Família</div>
+                    </div>
+                    <div class="country__card" onclick="openPopup('Alhambra', 'Situated in Granada, the Alhambra is a stunning palace and fortress complex that showcases exquisite Moorish architecture and beautiful gardens. Its intricate carvings, reflecting pools, and breathtaking views of the Sierra Nevada mountains make it a must-visit historical site.')">
+                        <img src="image/alhambra.jpg" alt="Alhambra" />
+                        <div class="country__name">Alhambra</div>
+                    </div>
+                    <div class="country__card" onclick="openPopup('Park Güell', 'Also designed by Antoni Gaudí, Park Güell is a colorful public park in Barcelona filled with whimsical sculptures, vibrant mosaics, and stunning architectural features. The park offers panoramic views of the city and is a perfect place for a leisurely stroll among Gaudí imaginative creations.')">
+                        <img src="image/park.jpg" alt="Park Güell" />
+                        <div class="country__name">Park Güelle</div>
+                    </div>
+                    <div class="country__card" onclick="openPopup('Plaza Mayor ', 'Located in the heart of Madrid, Plaza Mayor is a grand central square surrounded by impressive architecture and lively cafes. This historic plaza has been the site of many significant events and is a popular gathering place for both locals and tourists, offering a taste of Madrids vibrant atmosphere.')">
+                        <img src="image/plaza.jpg" alt="Plaza Mayor " />
+                        <div class="country__name">Plaza Mayor </div>
+                    </div>
+                </div>
+                <button class="clothing-advice-btn" onclick="window.location.href='index.html';">Plan Your Trip</button>
+
+            </div>
+        </div>
+    
+        </section>
+
+        <div id="myPopup" class="popup">
+            <div class="popup-content">
+                <span class="close" onclick="closePopup()">&times;</span>
+                <h2 id="popupTitle">Title</h2>
+                <p id="popupDescription">Description goes here...</p>
+            </div>
+        </div>
+        
+
+        <footer>
+            <p class="footer-text">Follow us on our social media channels</p>
+            <div class="social__icons">
+              <i class="ri-facebook-circle-fill"></i>
+              <i class="ri-twitter-fill"></i>
+              <i class="ri-instagram-fill"></i>
+            </div>
+            <p>&copy; 2024 TravelGo. All rights reserved.</p>
+          </footer>
+        
+    </div>
+
+    <script>
+    const apiKey = "a2e5a28227121e796c0cc440eaf0dc22"; 
+    const city = "Spain";
+    const countryCode = "ES";
+
+    async function fetchWeather() {
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&appid=${apiKey}&units=metric`);
+        const data = await response.json();
+
+        const forecastResponse = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${countryCode}&appid=${apiKey}&units=metric`);
+        const forecastData = await forecastResponse.json();
+
+        const location = `${data.name}, ${data.sys.country}`;
+        const temperature = `${Math.round(data.main.temp)}°C`;
+        const feelsLike = `${Math.round(data.main.feels_like)}°C`;
+        const condition = data.weather[0].description;
+        const wind = `${data.wind.speed} m/s`;
+        const humidity = `${data.main.humidity}%`;
+        const sunrise = new Date(data.sys.sunrise * 1000).toLocaleTimeString();
+        const sunset = new Date(data.sys.sunset * 1000).toLocaleTimeString();
+        const clothingAdvice = getClothingAdvice(data.main.temp);
+        const localTime = new Date().toLocaleString("en-IT", { timeZone: "Europe/Rome" });
+        const weatherIcon = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+
+        const forecastTemp = `${Math.round(forecastData.list[8].main.temp)}°C`;
+
+        document.getElementById("location").innerText = location;
+        document.getElementById("temperature").innerText = temperature;
+        document.getElementById("feels_like").innerText = feelsLike;
+        document.getElementById("condition").innerText = condition.charAt(0).toUpperCase() + condition.slice(1);
+        document.getElementById("wind").innerText = wind;
+        document.getElementById("humidity").innerText = humidity;
+        document.getElementById("sunrise").innerText = sunrise;
+        document.getElementById("sunset").innerText = sunset;
+        document.getElementById("clothing").innerText = clothingAdvice;
+        document.getElementById("local_time").innerText = localTime;
+        document.getElementById("forecast_temp").innerText = forecastTemp; 
+        document.getElementById("weather_icon").src = weatherIcon;
+    }
+
+    function getClothingAdvice(temp) {
+        if (temp >= 30) {
+            return "Wear light and breathable clothing.";
+        } else if (temp >= 20) {
+            return "A T-shirt and light jacket would be comfortable.";
+        } else if (temp >= 10) {
+            return "A sweater or jacket is advisable.";
+        } else {
+            return "Dress warmly with a coat and layers.";
+        }
+    }
+
+    const clothingImages = {
+        cold: ['image/cold1.jpg', 'image/cold2.jpg', 'image/cold3.jpg'], 
+        mild: ['image/mild1.jpg', 'image/mild2.jpg', 'image/mild3.jpg'], 
+        hot: ['image/hot1.jpg', 'image/hot2.jpg', 'image/hot3.jpg']      
+    };
+
+    let currentClothingIndex = 0; 
+    let currentClothingCategory = ''; 
+
+    function setClothingImages(temperature) {
+        if (temperature < 10) {
+            currentClothingCategory = 'cold';
+        } else if (temperature >= 10 && temperature <= 25) {
+            currentClothingCategory = 'mild';
+        } else {
+            currentClothingCategory = 'hot';
+        }
+        currentClothingIndex = 0; 
+        return clothingImages[currentClothingCategory];
+    }
+
+    function showClothingAdvice() {
+        const temperature = parseFloat(document.getElementById("temperature").textContent);
+        const clothingArray = setClothingImages(temperature);
+        document.getElementById("clothingImage").src = clothingArray[currentClothingIndex]; 
+        document.getElementById("clothingPopUp").style.display = "block";
+    }
+
+
+    function changeClothing(direction) {
+        const clothingArray = clothingImages[currentClothingCategory];
+        currentClothingIndex += direction;
+
+        if (currentClothingIndex < 0) {
+            currentClothingIndex = clothingArray.length - 1;
+        } else if (currentClothingIndex >= clothingArray.length) {
+            currentClothingIndex = 0;
+        }
+
+        document.getElementById("clothingImage").src = clothingArray[currentClothingIndex];
+    }
+
+    function closeClothingAdvice() {
+        document.getElementById("clothingPopUp").style.display = "none";
+    }
+
+    fetchWeather();
+
+    function openPopup(title, description) {
+        document.getElementById("popupTitle").innerText = title;
+        document.getElementById("popupDescription").innerText = description;
+        document.getElementById("myPopup").style.display = "block";
+    }
+
+    function closePopup() {
+        document.getElementById("myPopup").style.display = "none";
+    }
+
+    function toggleDropdown(id) {
+        const dropdown = document.getElementById(id);
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+</script>
+
+</html>

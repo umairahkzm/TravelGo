@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travel Advisory | Travel.co</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="nav__logo">TravelGo</div>
+      <ul class="nav__links">
+        <li><a class="link" href="homepage.html">Home</a></li>
+        <li><a class="link" href="index.html">Itineraries</a></li>
+      </ul>
+    </nav>    
+    <div class="main-container">
+      <h1>Travel Advisory</h1>
+    </div>
+  </header>
+
+  <div class="main-container">
+    <div id="weatherInfo" style="display: none; margin-top: 20px;">
+      <div id="weatherCondition"></div>
+      <img id="weatherIcon" alt="Weather Icon" />
+    </div>
+
+    <div class="section crud-section">
+      <h2>Personalized Travel Itineraries</h2>
+      <input type="text" id="itineraryTitle" placeholder="Itinerary Title" />
+      <select id="destinationDropdown">
+        <option value="">Select a Location</option>
+        <option value="Italy">Italy</option>
+        <option value="Japan">Japan</option>
+        <option value="France">France</option>
+        <option value="Spain">Spain</option>
+        <option value="Greece">Greece</option>
+        <option value="Australia">Australia</option>
+        <option value="Malaysia">Malaysia</option>
+        <option value="China">China</option>
+      </select>
+      <input type="date" id="itineraryDate" placeholder="Select Date" />
+      <input type="time" id="itineraryTime" placeholder="Select Time" />
+      <textarea id="activity" rows="4" placeholder="Activity"></textarea>
+      <input type="text" id="itineraryDescription" placeholder="Itinerary Description" />
+      <button id="btnCreate">Create</button>
+      <button id="btnUpdate">Update</button>
+      <button id="btnDelete">Delete</button>
+    </div>
+
+    <div class="section">
+      <h2>Itinerary List</h2>
+      <ul id="itineraryList"></ul>
+    </div>
+  </div>
+
+  <footer>
+    <p class="footer-text">Follow us on our social media channels</p>
+    <div class="social__icons">
+      <i class="ri-facebook-circle-fill"></i>
+      <i class="ri-twitter-fill"></i>
+      <i class="ri-instagram-fill"></i>
+    </div>
+    <p>&copy; 2024 Travel.co. All rights reserved.</p>
+  </footer>
+
+  <script>
+    let itineraries = JSON.parse(localStorage.getItem('itineraries')) || [];
+    let currentItineraryIndex = null;
+
+    function saveItineraries() {
+      localStorage.setItem('itineraries', JSON.stringify(itineraries));
+    }
+
+    function displayItineraries() {
+      const itineraryList = document.getElementById('itineraryList');
+      itineraryList.innerHTML = '';
+
+      itineraries.forEach((itinerary, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = 
+          `<div><strong>Title:</strong> ${itinerary.title}</div>
+          <div><strong>Description:</strong> ${itinerary.description}</div>
+          <div><strong>Destination:</strong> ${itinerary.destination}</div>
+          <div><strong>Date:</strong> ${itinerary.date}</div>
+          <div><strong>Time:</strong> ${itinerary.time}</div>
+          <div><strong>Activity:</strong><br> ${itinerary.activity.split('\n').join('<br>')}</div>
+          <div id="weatherDisplay-${index}"></div>`; 
+        li.addEventListener('click', () => selectItinerary(index));
+        itineraryList.appendChild(li);
+        
+        fetchWeather(itinerary.destination, index);
+      });
+    }
+
+    function selectItinerary(index) {
+      const itinerary = itineraries[index];
+      document.getElementById('itineraryTitle').value = itinerary.title;
+      document.getElementById('destinationDropdown').value = itinerary.destination;
+      document.getElementById('itineraryDate').value = itinerary.date;
+      document.getElementById('itineraryTime').value = itinerary.time;
+      document.getElementById('activity').value = itinerary.activity;
+      document.getElementById('itineraryDescription').value = itinerary.description;
+
+      currentItineraryIndex = index;
+    }
+
+    document.getElementById('btnCreate').addEventListener('click', () => {
+      const title = document.getElementById('itineraryTitle').value;
+      const destination = document.getElementById('destinationDropdown').value;
+      const date = document.getElementById('itineraryDate').value;
+      const time = document.getElementById('itineraryTime').value;
+      const activity = document.getElementById('activity').value;
+      const description = document.getElementById('itineraryDescription').value;
+
+      if (title && destination && date && time && activity) {
+        itineraries.push({ title, destination, date, time, activity, description });
+        saveItineraries();
+        displayItineraries();
+        clearInputs();
+      } else {
+        alert('Please fill in all fields!');
+      }
+    });
+
+    document.getElementById('btnUpdate').addEventListener('click', () => {
+      if (currentItineraryIndex !== null) {
+        const title = document.getElementById('itineraryTitle').value;
+        const destination = document.getElementById('destinationDropdown').value;
+        const date = document.getElementById('itineraryDate').value;
+        const time = document.getElementById('itineraryTime').value;
+        const activity = document.getElementById('activity').value;
+        const description = document.getElementById('itineraryDescription').value;
+
+        itineraries[currentItineraryIndex] = { title, destination, date, time, activity, description };
+        saveItineraries();
+        displayItineraries();
+        clearInputs();
+        currentItineraryIndex = null;
+      } else {
+        alert('Select an itinerary to update!');
+      }
+    });
+
+    document.getElementById('btnDelete').addEventListener('click', () => {
+      if (currentItineraryIndex !== null) {
+        itineraries.splice(currentItineraryIndex, 1);
+        saveItineraries();
+        displayItineraries();
+        clearInputs();
+        currentItineraryIndex = null;
+      } else {
+        alert('Select an itinerary to delete!');
+      }
+    });
+
+    function clearInputs() {
+      document.getElementById('itineraryTitle').value = '';
+      document.getElementById('destinationDropdown').value = '';
+      document.getElementById('itineraryDate').value = '';
+      document.getElementById('itineraryTime').value = '';
+      document.getElementById('activity').value = '';
+      document.getElementById('itineraryDescription').value = '';
+    }
+
+    async function fetchWeather(destination, index) {
+      const apiKey = 'de475312b7344d3a82f192356242910'; 
+      try {
+        const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${destination}&days=1&aqi=no&alerts=no;`);
+        const data = await response.json();
+        if (data && data.current) {
+          const weatherDisplay = document.getElementById(`weatherDisplay-${index}`);
+          const weatherInfo = `
+            <strong>Weather:</strong> ${data.current.condition.text}<br>
+            <strong>Temperature:</strong> ${data.current.temp_c}°C
+          `;
+          weatherDisplay.innerHTML = weatherInfo;
+        }
+      } catch (error) {
+        console.error('Error fetching weather data:', error);
+      }
+    }
+
+    displayItineraries();
+  </script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Destinations - Italy</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="country.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav__logo">TravelGo</div>
+            <ul class="nav__links">
+                <li><a class="link" href="homepage.html">Home</a></li>
+                <li><a class="link" href="index.html">Itineraries</a></li>
+            </ul>
+        </nav>
+        <div class="header__content">
+            <h1>Welcome To France</h1>
+        </div>
+    </header>
+
+    <div class="section__container">
+        <div class="about__container">
+            <h2>Get to know France ! </h2>
+            <div class="about__content">
+                <p>France, a country renowned for its art, history, and culinary excellence, is a top destination for travelers worldwide. 
+                    Located in Western Europe, it is celebrated for its iconic landmarks, such as the Eiffel Tower, Louvre Museum, and Notre-Dame 
+                    Cathedral in Paris. Each region of France offers a unique experience, from the sun-drenched beaches of the French Riviera to 
+                    the lavender fields of Provence, the vineyards of Bordeaux, and the picturesque villages of Alsace. With its rich cultural heritage, 
+                    France has been influential in fields like philosophy, art, fashion, and cuisine, making it a global center of creativity and style. 
+                    French cuisine, with its world-famous pastries, wines, and gourmet dishes, is a source of national pride and UNESCO-recognized heritage. 
+                    Known for its “joie de vivre,” France embodies both the timeless charm of the past and the vibrancy of modern European life, making it an unforgettable destination.</p>
+                <img src="image/aboutFrance.jpg" alt="Travel team" class="about__image">
+            </div>
+        </div>
+
+        <div class="weather__container">
+            <h2>Weather</h2>
+            <div class="weather__info">
+                <div class="weather__item">
+                    <h3><i class="ri-map-pin-line"></i> Location</h3>
+                    <p id="location">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-thermometer-line"></i> Temperature</h3>
+                    <p id="temperature">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-thermometer-line"></i> Feels Like</h3>
+                    <p id="feels_like">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-sun-line"></i> Condition</h3>
+                    <p id="condition">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-windy-line"></i> Wind</h3>
+                    <p id="wind">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-drop-line"></i> Humidity</h3>
+                    <p id="humidity">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-sun-cloudy-line"></i> Sunrise</h3>
+                    <p id="sunrise">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-moon-line"></i> Sunset</h3>
+                    <p id="sunset">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-shirt-line"></i> Clothing Advice</h3>
+                    <p id="clothing">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-clock-line"></i> Local Time</h3>
+                    <p id="local_time">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-thermometer-line"></i> Forecast Temp</h3>
+                    <p id="forecast_temp">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-weather-sunny-line"></i> Weather Icon</h3>
+                    <img id="weather_icon" src="" alt="Weather Icon" />
+                </div>
+            </div>
+
+<button class="clothing-advice-btn" onclick="showClothingAdvice()">Clothing Advice</button>
+
+<div id="clothingPopUp" style="display: none;">
+    <span onclick="closeClothingAdvice()" style="cursor:pointer;">&times;</span>
+    <div id="clothing-slider">
+        <i id="clothingPrev" class="arrow fas fa-chevron-left" onclick="changeClothing(-1)"></i>
+        <img id="clothingImage" src="" alt="Clothing Recommendation" />
+        <i id="clothingNext" class="arrow fas fa-chevron-right" onclick="changeClothing(1)"></i>
+    </div>
+    
+</div>
+
+        </div>
+
+        <section class="journey__container">
+            <div class="places__container">
+                <h2>Popular Places</h2>
+                <div class="journey__grid">
+                    <div class="country__card" onclick="openPopup('Eiffel Tower', 'Standing as a global icon in Paris, the Eiffel Tower is a must-visit landmark offering panoramic views of the city. This architectural marvel, designed by Gustave Eiffel, attracts millions of visitors yearly who can enjoy dining on its platforms or simply admire the structure from nearby parks.')">
+                        <img src="image/tower.jpg" alt="Eiffel Tower" />
+                        <div class="country__name">Eiffel Tower</div>
+                    </div>
+                    <div class="country__card" onclick="openPopup('Louvre Museum', 'The world’s largest art museum, the Louvre in Paris is home to thousands of masterpieces, including the Mona Lisa and Venus de Milo. With its iconic glass pyramid entrance, the museum offers a journey through art and history, from ancient civilizations to modern art.')">
+                        <img src="image/lourve.jpg" alt="Louvre Museum" />
+                        <div class="country__name">Louvre Museum</div>
+                    </div>
+                    <div class="country__card" onclick="openPopup('Palace of Versailles', 'Located near Paris, this former royal residence is a UNESCO World Heritage site known for its opulent architecture, lavishly decorated halls, and magnificent gardens. Visitors can explore the Hall of Mirrors, the King’s Grand Apartments, and the sprawling palace grounds, filled with fountains and sculptures.')">
+                        <img src="image/palace.jpg" alt="Palace of Versailles" />
+                        <div class="country__name">Palace of Versailles</div>
+                    </div>
+                    <div class="country__card" onclick="openPopup('Mont Saint-Michel', 'A medieval abbey perched on a rocky island off the coast of Normandy, Mont Saint-Michel is a breathtaking destination that appears like a fairy tale village. Surrounded by tidal waters, it features narrow winding streets, historic architecture, and stunning views from its ancient abbey.')">
+                        <img src="image/mont.jpg" alt="Mont Saint-Michel" />
+                        <div class="country__name">Mont Saint-Michel</div>
+                    </div>
+                </div>
+                <button class="clothing-advice-btn" onclick="window.location.href='index.html';">Plan Your Trip</button>
+
+            </div>
+        </div>
+    
+        </section>
+
+        <div id="myPopup" class="popup">
+            <div class="popup-content">
+                <span class="close" onclick="closePopup()">&times;</span>
+                <h2 id="popupTitle">Title</h2>
+                <p id="popupDescription">Description goes here...</p>
+            </div>
+        </div>
+        
+
+        <footer>
+            <p class="footer-text">Follow us on our social media channels</p>
+            <div class="social__icons">
+              <i class="ri-facebook-circle-fill"></i>
+              <i class="ri-twitter-fill"></i>
+              <i class="ri-instagram-fill"></i>
+            </div>
+            <p>&copy; 2024 TravelGo. All rights reserved.</p>
+          </footer>
+        
+    </div>
+
+    <script>
+    const apiKey = "a2e5a28227121e796c0cc440eaf0dc22"; 
+    const city = "France";
+    const countryCode = "FR";
+
+    async function fetchWeather() {
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&appid=${apiKey}&units=metric`);
+        const data = await response.json();
+
+        const forecastResponse = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${countryCode}&appid=${apiKey}&units=metric`);
+        const forecastData = await forecastResponse.json();
+
+        const location = `${data.name}, ${data.sys.country}`;
+        const temperature = `${Math.round(data.main.temp)}°C`;
+        const feelsLike = `${Math.round(data.main.feels_like)}°C`;
+        const condition = data.weather[0].description;
+        const wind = `${data.wind.speed} m/s`;
+        const humidity = `${data.main.humidity}%`;
+        const sunrise = new Date(data.sys.sunrise * 1000).toLocaleTimeString();
+        const sunset = new Date(data.sys.sunset * 1000).toLocaleTimeString();
+        const clothingAdvice = getClothingAdvice(data.main.temp);
+        const localTime = new Date().toLocaleString("en-IT", { timeZone: "Europe/Rome" });
+        const weatherIcon = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+
+        const forecastTemp = `${Math.round(forecastData.list[8].main.temp)}°C`;
+
+        document.getElementById("location").innerText = location;
+        document.getElementById("temperature").innerText = temperature;
+        document.getElementById("feels_like").innerText = feelsLike;
+        document.getElementById("condition").innerText = condition.charAt(0).toUpperCase() + condition.slice(1);
+        document.getElementById("wind").innerText = wind;
+        document.getElementById("humidity").innerText = humidity;
+        document.getElementById("sunrise").innerText = sunrise;
+        document.getElementById("sunset").innerText = sunset;
+        document.getElementById("clothing").innerText = clothingAdvice;
+        document.getElementById("local_time").innerText = localTime;
+        document.getElementById("forecast_temp").innerText = forecastTemp; 
+        document.getElementById("weather_icon").src = weatherIcon;
+    }
+
+    function getClothingAdvice(temp) {
+        if (temp >= 30) {
+            return "Wear light and breathable clothing.";
+        } else if (temp >= 20) {
+            return "A T-shirt and light jacket would be comfortable.";
+        } else if (temp >= 10) {
+            return "A sweater or jacket is advisable.";
+        } else {
+            return "Dress warmly with a coat and layers.";
+        }
+    }
+
+    const clothingImages = {
+        cold: ['image/cold1.jpg', 'image/cold2.jpg', 'image/cold3.jpg'], 
+        mild: ['image/mild1.jpg', 'image/mild2.jpg', 'image/mild3.jpg'], 
+        hot: ['image/hot1.jpg', 'image/hot2.jpg', 'image/hot3.jpg']      
+    };
+
+    let currentClothingIndex = 0; 
+    let currentClothingCategory = ''; 
+
+    function setClothingImages(temperature) {
+        if (temperature < 10) {
+            currentClothingCategory = 'cold';
+        } else if (temperature >= 10 && temperature <= 25) {
+            currentClothingCategory = 'mild';
+        } else {
+            currentClothingCategory = 'hot';
+        }
+        currentClothingIndex = 0; 
+        return clothingImages[currentClothingCategory];
+    }
+
+    function showClothingAdvice() {
+        const temperature = parseFloat(document.getElementById("temperature").textContent);
+        const clothingArray = setClothingImages(temperature);
+        document.getElementById("clothingImage").src = clothingArray[currentClothingIndex]; 
+        document.getElementById("clothingPopUp").style.display = "block";
+    }
+
+    function changeClothing(direction) {
+        const clothingArray = clothingImages[currentClothingCategory];
+        currentClothingIndex += direction;
+
+        if (currentClothingIndex < 0) {
+            currentClothingIndex = clothingArray.length - 1;
+        } else if (currentClothingIndex >= clothingArray.length) {
+            currentClothingIndex = 0;
+        }
+
+        document.getElementById("clothingImage").src = clothingArray[currentClothingIndex];
+    }
+
+    function closeClothingAdvice() {
+        document.getElementById("clothingPopUp").style.display = "none";
+    }
+
+    fetchWeather();
+
+    function openPopup(title, description) {
+        document.getElementById("popupTitle").innerText = title;
+        document.getElementById("popupDescription").innerText = description;
+        document.getElementById("myPopup").style.display = "block";
+    }
+
+    function closePopup() {
+        document.getElementById("myPopup").style.display = "none";
+    }
+
+    function toggleDropdown(id) {
+        const dropdown = document.getElementById(id);
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+</script>
+
+</html>

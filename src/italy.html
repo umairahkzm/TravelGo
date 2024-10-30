@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Destinations - Italy</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="country.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav__logo">TravelGo</div>
+            <ul class="nav__links">
+                <li><a class="link" href="homepage.html">Home</a></li>
+                <li><a class="link" href="index.html">Itineraries</a></li>
+            </ul>
+        </nav>
+        <div class="header__content">
+            <h1>Welcome To Italy</h1>
+        </div>
+    </header>
+
+    <div class="section__container">
+        <div class="about__container">
+            <h2>Get to know Italy</h2>
+            <div class="about__content">
+                <p>Italy, a captivating country in Southern Europe, is renowned for its profound historical significance, artistic achievements, and culinary delights. From the ancient ruins of Rome, including the Colosseum and the Roman Forum, to the stunning Renaissance art found in Florence's Uffizi Gallery, Italy's rich cultural heritage is evident at every turn. The picturesque landscapes of Tuscany, with its rolling hills and vineyards, offer a glimpse into the country's natural beauty, while the romantic canals of Venice create an enchanting atmosphere. Italian cuisine, celebrated worldwide, features regional specialties such as pasta, pizza, gelato, and exquisite wines, making dining an integral part of the Italian experience. With its charming cities, historical landmarks, and warm hospitality, Italy invites travelers to immerse themselves in a world where history, art, and gastronomy come together to create an unforgettable journey.</p>
+                <img src="image/Italy2.jpg" alt="Travel team" class="about__image">
+            </div>
+        </div>
+
+        <div class="weather__container">
+            <h2>Weather</h2>
+            <div class="weather__info">
+                <div class="weather__item">
+                    <h3><i class="ri-map-pin-line"></i> Location</h3>
+                    <p id="location">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-thermometer-line"></i> Temperature</h3>
+                    <p id="temperature">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-thermometer-line"></i> Feels Like</h3>
+                    <p id="feels_like">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-sun-line"></i> Condition</h3>
+                    <p id="condition">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-windy-line"></i> Wind</h3>
+                    <p id="wind">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-drop-line"></i> Humidity</h3>
+                    <p id="humidity">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-sun-cloudy-line"></i> Sunrise</h3>
+                    <p id="sunrise">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-moon-line"></i> Sunset</h3>
+                    <p id="sunset">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-shirt-line"></i> Clothing Advice</h3>
+                    <p id="clothing">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-clock-line"></i> Local Time</h3>
+                    <p id="local_time">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-thermometer-line"></i> Forecast Temp</h3>
+                    <p id="forecast_temp">Loading...</p>
+                </div>
+                <div class="weather__item">
+                    <h3><i class="ri-weather-sunny-line"></i> Weather Icon</h3>
+                    <img id="weather_icon" src="" alt="Weather Icon" />
+                </div>
+            </div>
+
+<button class="clothing-advice-btn" onclick="showClothingAdvice()">Clothing Advice</button>
+
+<div id="clothingPopUp" style="display: none;">
+    <span onclick="closeClothingAdvice()" style="cursor:pointer;">&times;</span>
+    <div id="clothing-slider">
+        <i id="clothingPrev" class="arrow fas fa-chevron-left" onclick="changeClothing(-1)"></i>
+        <img id="clothingImage" src="" alt="Clothing Recommendation" />
+        <i id="clothingNext" class="arrow fas fa-chevron-right" onclick="changeClothing(1)"></i>
+    </div>
+    
+</div>
+
+        </div>
+
+        <section class="journey__container">
+            <div class="places__container">
+                <h2>Popular Places</h2>
+                <div class="journey__grid">
+                    <div class="country__card" onclick="openPopup('Colosseum', 'Located in Rome, the Colosseum is an iconic symbol of ancient Rome and one of the most recognizable landmarks in the world. This monumental amphitheater, built in AD 70-80, hosted gladiatorial contests and public spectacles, and today it attracts millions of visitors eager to explore its fascinating history.')">
+                        <img src="image/milan.jpg" alt="Milan" />
+                        <div class="country__name">Colosseum</div>
+                    </div>
+                    <div class="country__card" onclick="openPopup('Venice', 'Known for its intricate canal system and stunning architecture, Venice is a unique city that captivates visitors with its romantic charm. Famous attractions include St. Marks Basilica, the Grand Canal, and the Rialto Bridge. A gondola ride through the canals offers a memorable way to experience this enchanting city.')">
+                        <img src="image/venice.jpg" alt="Venice" />
+                        <div class="country__name">Venice</div>
+                    </div>
+                    <div class="country__card" onclick="openPopup('Florence', 'The capital of Italys Tuscany region, Florence is considered the birthplace of the Renaissance and is home to breathtaking art and architecture. Highlights include the magnificent Florence Cathedral (Duomo), the Uffizi Gallery, and the Ponte Vecchio bridge, making it a must-visit destination for art lovers and history enthusiasts alike.')">
+                        <img src="image/florence.jpg" alt="Florence" />
+                        <div class="country__name">Florence</div>
+                    </div>
+                    <div class="country__card" onclick="openPopup('Leaning Tower of Pisa', 'This world-famous bell tower, located in Pisa, is renowned for its unintended tilt. A remarkable example of medieval architecture, the Leaning Tower attracts tourists who come to take photos holding up the tower and explore the nearby Piazza dei Miracoli, which also includes the Pisa Cathedral and Baptistery.')">
+                        <img src="image/pisa.jpg" alt="Pisa" />
+                        <div class="country__name">Leaning Tower of Pisa</div>
+                    </div>
+                </div>
+                <button class="clothing-advice-btn" onclick="window.location.href='index.html';">Plan Your Trip</button>
+
+            </div>
+        </div>
+    
+        </section>
+
+        <div id="myPopup" class="popup">
+            <div class="popup-content">
+                <span class="close" onclick="closePopup()">&times;</span>
+                <h2 id="popupTitle">Title</h2>
+                <p id="popupDescription">Description goes here...</p>
+            </div>
+        </div>
+        
+
+        <footer>
+            <p class="footer-text">Follow us on our social media channels</p>
+            <div class="social__icons">
+              <i class="ri-facebook-circle-fill"></i>
+              <i class="ri-twitter-fill"></i>
+              <i class="ri-instagram-fill"></i>
+            </div>
+            <p>&copy; 2024 TravelGo. All rights reserved.</p>
+          </footer>
+        
+    </div>
+
+    <script>
+    const apiKey = "a2e5a28227121e796c0cc440eaf0dc22"; 
+    const city = "Italy";
+    const countryCode = "IT";
+
+    async function fetchWeather() {
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&appid=${apiKey}&units=metric`);
+        const data = await response.json();
+
+        const forecastResponse = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${countryCode}&appid=${apiKey}&units=metric`);
+        const forecastData = await forecastResponse.json();
+
+        const location = `${data.name}, ${data.sys.country}`;
+        const temperature = `${Math.round(data.main.temp)}°C`;
+        const feelsLike = `${Math.round(data.main.feels_like)}°C`;
+        const condition = data.weather[0].description;
+        const wind = `${data.wind.speed} m/s`;
+        const humidity = `${data.main.humidity}%`;
+        const sunrise = new Date(data.sys.sunrise * 1000).toLocaleTimeString();
+        const sunset = new Date(data.sys.sunset * 1000).toLocaleTimeString();
+        const clothingAdvice = getClothingAdvice(data.main.temp);
+        const localTime = new Date().toLocaleString("en-IT", { timeZone: "Europe/Rome" });
+        const weatherIcon = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+
+        const forecastTemp = `${Math.round(forecastData.list[8].main.temp)}°C`;
+
+        document.getElementById("location").innerText = location;
+        document.getElementById("temperature").innerText = temperature;
+        document.getElementById("feels_like").innerText = feelsLike;
+        document.getElementById("condition").innerText = condition.charAt(0).toUpperCase() + condition.slice(1);
+        document.getElementById("wind").innerText = wind;
+        document.getElementById("humidity").innerText = humidity;
+        document.getElementById("sunrise").innerText = sunrise;
+        document.getElementById("sunset").innerText = sunset;
+        document.getElementById("clothing").innerText = clothingAdvice;
+        document.getElementById("local_time").innerText = localTime;
+        document.getElementById("forecast_temp").innerText = forecastTemp; 
+        document.getElementById("weather_icon").src = weatherIcon;
+    }
+
+    function getClothingAdvice(temp) {
+        if (temp >= 30) {
+            return "Wear light and breathable clothing.";
+        } else if (temp >= 20) {
+            return "A T-shirt and light jacket would be comfortable.";
+        } else if (temp >= 10) {
+            return "A sweater or jacket is advisable.";
+        } else {
+            return "Dress warmly with a coat and layers.";
+        }
+    }
+
+    const clothingImages = {
+        cold: ['image/cold1.jpg', 'image/cold2.jpg', 'image/cold3.jpg'], 
+        mild: ['image/mild1.jpg', 'image/mild2.jpg', 'image/mild3.jpg'], 
+        hot: ['image/hot1.jpg', 'image/hot2.jpg', 'image/hot3.jpg']      
+    };
+
+    let currentClothingIndex = 0; 
+    let currentClothingCategory = ''; 
+
+    function setClothingImages(temperature) {
+        if (temperature < 10) {
+            currentClothingCategory = 'cold';
+        } else if (temperature >= 10 && temperature <= 25) {
+            currentClothingCategory = 'mild';
+        } else {
+            currentClothingCategory = 'hot';
+        }
+        currentClothingIndex = 0; 
+        return clothingImages[currentClothingCategory];
+    }
+
+    function showClothingAdvice() {
+        const temperature = parseFloat(document.getElementById("temperature").textContent);
+        const clothingArray = setClothingImages(temperature);
+        document.getElementById("clothingImage").src = clothingArray[currentClothingIndex]; 
+        document.getElementById("clothingPopUp").style.display = "block";
+    }
+
+    function changeClothing(direction) {
+        const clothingArray = clothingImages[currentClothingCategory];
+        currentClothingIndex += direction;
+
+        if (currentClothingIndex < 0) {
+            currentClothingIndex = clothingArray.length - 1;
+        } else if (currentClothingIndex >= clothingArray.length) {
+            currentClothingIndex = 0;
+        }
+
+        document.getElementById("clothingImage").src = clothingArray[currentClothingIndex];
+    }
+
+    function closeClothingAdvice() {
+        document.getElementById("clothingPopUp").style.display = "none";
+    }
+
+    fetchWeather();
+
+    function openPopup(title, description) {
+        document.getElementById("popupTitle").innerText = title;
+        document.getElementById("popupDescription").innerText = description;
+        document.getElementById("myPopup").style.display = "block";
+    }
+
+    function closePopup() {
+        document.getElementById("myPopup").style.display = "none";
+    }
+
+    function toggleDropdown(id) {
+        const dropdown = document.getElementById(id);
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+</script>
+
+</html>

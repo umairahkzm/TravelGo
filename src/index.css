@@ -1,0 +1,161 @@
+:root {
+  --primary-color: #669ccb;
+  --primary-color-dark: #5681a7;
+  --secondary-color: #e8f1fa;
+  --text-dark: #282d31;
+  --text-light: #767268;
+  --extra-light: #f3f4f6;
+  --max-width: 1200px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  background-color: #f8f8f8;
+  color: var(--text-dark);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  height: 50vh;
+  background-image: linear-gradient(rgba(45, 92, 132, 0.5), rgba(45, 92, 132, 0.5)), url("image/Italy1.jpg");
+  background-position: center;
+  background-size: cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+nav {
+  width: 100%;
+  max-width: var(--max-width);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  position: absolute;
+  top: 20px;
+}
+
+.nav__logo {
+  font-size: 2rem;
+  color: white;
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav__links .link {
+  cursor: pointer;
+  color: white;
+  font-weight: 500;
+}
+
+.main-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.section {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: var(--primary-color);
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
+
+.crud-section input,
+.crud-section select,
+.crud-section textarea,
+.crud-section button {
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.crud-section button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.crud-section button:hover {
+  background-color: var(--primary-color-dark);
+}
+
+#itineraryList {
+  list-style-type: none;
+  padding: 0;
+}
+
+#itineraryList li {
+  background-color: #dff0ff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#itineraryList li:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.social__icons i {
+  color: white;
+  margin: 0 10px;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .main-container {
+    padding: 10px;
+  }
+
+  header {
+    height: 30vh;
+  }
+
+  .nav__logo {
+    font-size: 1.8em;
+  }
+}
